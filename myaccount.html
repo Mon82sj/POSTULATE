@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="This is a cloned netflix website project for full stack web development internship">
+    <meta name="author" content="Monica G">
+    <title>Netflix</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <link rel="icon" href="netflix icon.png" type="icon"> 
+    <style>
+       /* body.light-theme {
+            background-color:white;
+            color:#000;
+        }
+
+        body.dark-theme {
+            background-color: #000;
+            color:white;
+        }
+        body.dark-theme > td {
+            box-shadow: 3px 15px 15px rgb(235, 100, 100);
+        }*/
+        ::selection{
+            background-color: red;
+            color:black;
+        }
+        html{
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+        }.logo{
+            position:absolute;
+            left:2%;
+            right:80%;
+            top:4%;
+            z-index:1;
+            height: 10%;
+            width:12%;
+            filter: brightness(90%);
+        }
+        .btns{
+            position:absolute;
+            top:-2px;
+            left:80%;
+            z-index:1;
+            padding-top:34px;
+            border:none;
+            filter: brightness(90%);
+            display: flex;
+            box-shadow: none;
+            cursor:pointer;
+            justify-content: space-between;
+        }
+        #btn2:hover,#search-btn:hover{
+            background-color: transparent;
+            border:1px solid white;
+        }
+        #btn2{
+            padding:10px;
+            width:55%;
+            border:none;
+            left:90%;
+            margin-right: 5px;;
+            font-size:16px;
+            border-radius:4px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            color:white;
+            background-color: red;
+        }
+        .div1:not(.h1){
+            background-image: url(https://images.unsplash.com/photo-1506606401543-2e73709cebb4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+            background-repeat: no-repeat;
+            width:100%;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            height:100vh;
+        }
+        .h1{
+            margin-top: 10%;;
+            color:white;
+            text-align: center;
+            
+        }
+        .toggle {
+            padding:10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 5px;
+            background-color: red;
+            color:white;
+            border:none;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+        }
+        .search-content:has(input){
+            text-align: center;
+            color:white;
+            position: relative;
+            filter: brightness(90%);
+        }
+        ::placeholder{
+            font-family: 'Montserrat', sans-serif;
+            color:white;
+            font-size: 16px;
+            font-weight:100;
+            filter: brightness(90%);
+        }
+        #search{
+            padding:16px;
+            width:50%;
+            font-family: 'Montserrat', sans-serif;
+            color:white;
+            font-size: 16px;
+            outline:none;
+            border-radius: 15px;
+            border:2px solid white;
+            background-color: transparent;
+        }
+        #search-btn{
+            position:absolute;
+            padding:16px;;
+            border:none;
+            font-size:18px;
+            border-radius:4px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            color:white;
+            background-color: red;
+        }
+        #img1,#img2{
+            width:140px;
+            height:170px;
+            margin-left: 20px;
+            border:5px solid black;
+            margin-right: 20px;
+            margin-top: 20px;
+        }
+        .f1,.f2{
+            border: 2px solid red;
+            border-radius: 15px;
+          
+        }
+        .l1,.l2{
+            font-size: larger;
+            font-weight: bold;
+            color:red;
+        }
+        .recently-watched,.top-search{
+            margin-top: 10px;
+            margin-left:5px;;
+            margin-bottom: 20px;
+        }
+        span{
+            cursor:pointer;
+            margin-left: 13px;
+            margin-right:13px;
+        }
+        td{
+            margin-left: 15px ;
+            margin-right:15px;
+            box-shadow: 3px 15px 15px rgb(66, 4, 4);
+        }
+        h4{
+            text-align:center;
+            color:red;
+            text-shadow: 1px 8px 8px  rgb(66, 3, 3);
+        }
+        table{
+            border-spacing: 9px;
+        }
+    </style>
+    <!--<script>
+        function toggled() {
+            document.body.classList.toggle('dark-theme');
+            localStorage.setItem('dark-theme', document.body.classList.contains('dark-theme'));
+        }
+
+        const savedTheme = localStorage.getItem('dark-theme');
+        if (savedTheme === 'true') {
+            document.body.classList.add('dark-theme');
+            document.getElementsByClassName("toggle").innerText="dark";
+        }
+        document.getElementById('toggle').addEventListener('click', toggleTheme);
+    </script>-->
+    <script>
+        function showdetails(mediaId) {
+            console.log('media id : ' ,mediaId)
+            var url = 'moviedetails.php?media_id=' + mediaId;
+            window.location.href=url;
+        }
+        function srch(){
+            var a =document.getElementById("search").value;
+            var b =document.getElementById("img1").alt;
+            if(a==b){
+            document.getElementById("img1").focus();
+            }
+        }
+    </script>
+    </head>
+    <body class="light-theme">
+        <div class="div1">
+            <img class="logo" src="logo-removebg-preview.png">
+            <div>
+                
+            </div>
+            <div class="btns" >
+                <!-- <button class="toggle" onclick="toggled()">Theme</button>-->
+                <button id="btn2">Account</button>
+                <button id="btn2" class="info">info</button>
+            </div><br><br>
+            <div class="h1">
+                <h1>Hii!!..</h1>
+                <h1>Welcome to Netflix Account</h1>
+            </div><br>
+            <div class="search-content">
+                <input id="search" placeholder=" Search movies, series,dramas,,(Only caps with spaces)" autocomplete="off"><button id="search-btn" onclick="srch()">search</button><br><br><br>
+            </div>
+        </div>
+        <div>
+            <fieldset class="f1">
+                <legend class="l1"><h1>Recently Watched</h1></legend>
+                <table class="recently-watched">
+                    <tr>
+                        <td><span onclick="showdetails(10011)"><img id="img1" src="https://m.media-amazon.com/images/I/81EuuG-54lL._AC_UF894,1000_QL80_.jpg" alt="Stranger Things" ><h4>Stranger Things</h4></span></td>
+                        <td><span onclick="showdetails(10012)"><img id="img1" src="https://c4.wallpaperflare.com/wallpaper/462/216/45/movies-dark-wednesday-addams-wednesday-tv-series-movie-poster-hd-wallpaper-preview.jpg" alt="Wednesday"><h4>Wednesday</h4></span></td>
+                        <td><span onclick="showdetails(10013)"><img id="img1" style="margin-top: -1.5px;;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFHPGrdz3jpnzJhaNtRBrRrRZqFX8265bnoFC9uOuJtQ&s" alt="Friends"></span><h4>F.R.I.E.N.D.S</h4></td>
+                        <td><span onclick="showdetails(10014)"><img id="img1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrPJtb0nj06ZhAqvNax_CLqkjfZBZFuPaOK9A3-fttek-7y6lH2gGNsEB3jFg4qM2VVO8&usqp=CAU" alt="Warrior nun"><h4>Warrior Nun</h4></span></td>
+                        <td><span onclick="showdetails(10015)"><img id="img1" src="https://m.media-amazon.com/images/I/41a39mQcxVL._AC_UF1000,1000_QL80_.jpg" alt="Dark"><h4>Dark</h4></span></td>
+                        <td><span onclick="showdetails(10016)"><img id="img1" src="https://m.media-amazon.com/images/I/710CdI8k9XL._AC_UF894,1000_QL80_.jpg" alt="Elemental"><h4>Elemental</h4></span>    </td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset class="f2">
+                <legend class="l2"><h1>Top on Search</h1></legend>
+                <table class="top-search">
+                    <tr>
+                        <td><span onclick="showdetails(20021)"><img id="img2" src="https://m.media-amazon.com/images/M/MV5BOGQ2MDJiZmYtZDhmMC00NTcwLWE4MTktNTMzZmFlMWYxN2EzXkEyXkFqcGdeQXVyNzUyODI4Njg@._V1_FMjpg_UX1000_.jpg" alt="Good grief" ><h4>Good Grief</h4></span></td>
+                        <td><span onclick="showdetails(20022)"><img id="img2" src="https://m.media-amazon.com/images/M/MV5BYzlhNzBmYjUtNjRmZC00MDg3LWE4NDMtZDNjODUwNTljMzhlXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_FMjpg_UX1000_.jpg" alt="Rebel Moon"><h4>Rebel Moon</h4></span></td>
+                        <td><span onclick="showdetails(20023)"><img id="img2" src="https://m.media-amazon.com/images/M/MV5BZjBjZmM1MzAtOTRlZC00OWRmLThkN2QtZTA2YzE2OWIwMzNjXkEyXkFqcGdeQXVyMTI3NjAxODc0._V1_.jpg" alt="Spaceman"></span><h4>Spaceman</h4></td>
+                        <td><span onclick="showdetails(20024)"><img id="img2" src="https://rukminim2.flixcart.com/image/850/1000/kw5ag7k0/poster/p/7/c/small-squid-game-poster-multicolor-photopaper-print-12-inch-x-18-original-imag8w6dyjhqyzuh.jpeg?q=20&crop=false" alt="Squid Game"><h4>Squid Game</h4></span></td>
+                        <td><span onclick="showdetails(20025)"><img id="img2" src="https://m.media-amazon.com/images/I/81NG0efHSQL._AC_UF1000,1000_QL80_.jpg" alt="Queen Charlotte"><h4>Queen Charlotte</h4></span></td>
+                        <td><span onclick="showdetails(20026)"><img id="img2" src="https://m.media-amazon.com/images/M/MV5BNjEwMmYzN2QtMmFiNS00NThkLTlhMmYtZDg1OTk1ZDAyNjY5XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="The Brothers Sun"><h4>The Brothers Sun</h4></span>    </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </div>
+    </body>
+</html>

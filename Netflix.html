@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="This is a cloned netflix website project for full stack web development internship">
+    <meta name="author" content="Monica G">
+    <title>Netflix</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <link rel="icon" href="netflix icon.png" type="icon"> 
+    <style>
+        ::selection{
+            background-color: red;
+            color:black;
+        }
+        html{
+            overflow-x:hidden;
+        }
+        .gif{
+            width:100%;
+            height:50%;
+            background-size: contain;
+            filter: brightness(60%);
+        }
+        .div1{
+            position: relative;
+            color:white;
+            text-align: center;
+        }
+        body:not(.listof){
+            background-color: black;
+            color:white;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text{
+            position:absolute;
+            left:50%;
+            top: 44%;
+            font-size:20px;
+            transform: translate(-50%,-50%);
+            z-index: 1;
+            text-transform:capitalize;
+        }
+        div:not(.text,.div1,.last,.btns,.img1){
+            padding-top: 40px;
+            text-align: center;
+            padding-bottom: 40px;
+            box-shadow: 20px 10px 20px rgb(49, 46, 46);
+        }
+        .listof{
+            display: flex;
+            margin-left: 50px;
+            padding: 30px;
+            padding-inline-end: 30px;
+            color: black;
+            width:85%;
+            font-size: larger;
+            border:4px solid black;
+            justify-content: space-between;
+            background-color: rgb(165, 165, 156);
+        }
+        .fin,.sign{
+            padding:20px;
+            color:white;
+            background-color: red;
+            border-radius:5px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            font-size: large;
+            border: none;
+        }
+        .logo{
+            position:absolute;
+            left:2%;
+            right:80%;
+            z-index:1;
+            height: 13%;
+            width:17%;
+        }
+        .btns{
+            position:absolute;
+            top:-2px;
+            left:65%;
+            z-index:1;
+            padding-top:34px;
+            border:none;
+            display: flex;
+            box-shadow: none;
+            justify-content: space-between;
+        }
+        #btn1,.lang{
+            padding:10px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            border:1px solid white;
+            font-size:16px;
+            background-color: transparent;
+            color:white;
+            margin-right: 13px;
+            left:70%;
+            width:50px;
+            border-radius:4px;
+        }
+        #btn2{
+            padding:10px;
+            width:55%;
+            border:none;
+            left:90%;
+            font-size:16px;
+            border-radius:4px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            color:white;
+            background-color: red;
+        }
+        table{
+            text-align: left;
+            background: cover;
+        }
+        tr,td{
+            padding:12px;
+            text-decoration: underline;
+        }
+        .lang{
+            width:150px;
+        }
+        #container1 ,#container2,#container3,#container4,#container5{
+            display: none;
+            position:fixed;
+            top: 50%;
+            font-size: 17px;
+            line-height: 30px;
+            left: 50%;
+            color:white;
+            width:70%;
+            transform: translate(-50%, -50%);
+            background-color:black;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+        span{
+            color:white;
+            cursor:grab;
+            margin-left: 70%;
+        }
+        .img1{
+            position:relative;
+            display: flex;
+            justify-content: center;
+        }
+        .imge1{
+            position:absolute;
+            width:35%;
+            justify-content:left;
+            height:45%;
+            top:26%;
+        }
+    </style>
+    <script>
+        var engbtn=document.getElementsById("btn1");
+        var soutbtn=document.getElementsById("btn2");
+        var sup=document.getElementsByClassName("sign");
+        var finbtn=document.getElementsByClassName("fin");
+        function signup(){
+            window.open("sign.html",'_self');
+        }
+        function signin(){
+            window.open("signin.html","_self");
+        }
+        function opened(cont){
+            document.getElementById("container"+cont).style.display="block";
+        }
+        function closed(cont){
+            document.getElementById("container"+cont).style.display="none";
+        }
+    </script>
+</head>
+<body>
+    <div class="div1">
+        <img class="logo" src="logo-removebg-preview.png">
+        <div class="btns" >
+            <select name="language" class="lang">
+            <option id="btn1" style="color:black;">English</option>
+            <option id="btn1" style="color:black;">Hindi</option>
+            </select>
+            <button id="btn2" onclick="signin()">Sign in</button>
+        </div>
+        <div class="text">Welcome back!<h2>Unlimited movies, TV shows and more</h2>Watch anywhere. Cancel anytime.<br><br>
+            <button class="fin" onclick="signup()" >Finish Sign Up</button></div>
+        <img src="bg.png" class="gif">
+    </div>
+    <div>
+        <h1>Enjoy on you own TV</h1>
+        <h4>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</h4><br>
+        <div class="img1"><img  src="tv.png" ><img class="imge1" src="netflix gif.gif"></div>
+    </div>
+    <div>
+        <h1>Download your shows to watch offline</h1>
+        <h4>Save your favourites easily and always have something to watch.</h4><br>
+        <img src="mobile-0819.jpg">
+    </div>
+    <div>
+        <h1>Watch everywhere</h1>
+        <h4>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</h4><br>
+        <img src="device-pile-in.png"> 
+    </div>
+    <div>
+        <h1>Create profiles for kids</h1>
+        <h4>Send children on adventures with their favourite characters in a space made just for them—free with your membership.</h4><br>
+        <img src="child.png"> 
+    </div>
+    <div class="last">
+        <h1 style="text-align: center;"><br>Frequently asked Question</h1>
+        
+        <span class="listof" onclick="opened(1)">What is Netflix? </span>
+        <div id="container1">
+            <span id="popupCloseBtn" onclick="closed(1)">X</span>
+                <p >Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected devices.<br>
+                    You can watch as much as you want, whenever you want, without a single ad – all for one low monthly price. There's always something new to discover, and new TV shows and movies are added every week!
+                </p>
+        </div>
+       
+       
+        <span class="listof" onclick="opened(2)">How much does Netflix cost?</span>
+         <div id="container2">
+            <span id="popupCloseBtn" onclick="closed(2)">X</span>
+                <p >Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from ₹649 to ₹149 a month. No extra costs, no contracts.                </p>
+        </div>
+        
+        
+        <span class="listof" onclick="opened(3)">Where can I watch?</span>
+        
+        <div id="container3">
+            <span id="popupCloseBtn" onclick="closed(3)">X</span>
+                <p >Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles.                </p>
+        </div>
+        
+        
+        <span class="listof" onclick="opened(4)">How do I cancel?</span>
+        
+        <div id="container4">
+            <span id="popupCloseBtn" onclick="closed(4)">X</span>
+                <p >Netflix is flexible. There are no annoying contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime.                </p>
+        </div>
+        
+        
+        <span class="listof" onclick="opened(5)">What can I watch on Netflix?</span>
+        
+        <div id="container5">
+            <span id="popupCloseBtn" onclick="closed(5)">X</span>
+                <p >Netflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime you want.                </p>
+        </div><br><br><br>
+
+        <center><button class="sign" onclick="signup()" >Finish Sign Up</button></center>
+    </div>
+    <div class="con">
+        <p>Question? Call 000-111-222-333-444</p>
+        <center>
+        <table>
+            <tr>
+                <td><a>FAQ</a></td>
+                <td><a>Help Centre</a></td>
+                <td><a>Account</a></td>
+                <td><a>Media Centre</a></td>
+            </tr>
+            <tr>
+                <td><a>Investor Relations</a></td>
+                <td><a>Jobs</a></td>
+                <td><a>Ways to Watch</a></td>
+                <td><a>Term Of Use</a></td>
+            </tr>
+            <tr>
+                <td><a>Privacy</a></td>
+                <td><a>Cookie Preferences</a></td>
+                <td><a>Corporate Information</a></td>
+                <td><a>Contact Us</a></td>
+            </tr>
+            <tr>
+                <td><a>Speed Test</a></td>
+                <td><a>Legal Notices</a></td>
+                <td><a>Only on Netflix</a></td>
+            </tr>
+        </table>
+        <br>
+        <select name="language" class="lang">
+            <option id="btn1">English</option>
+            <option id="btn1">Hindi</option>
+        </select>
+        <h3>Netflix India</h3></center>
+    </div>
+</body>
+</html>
